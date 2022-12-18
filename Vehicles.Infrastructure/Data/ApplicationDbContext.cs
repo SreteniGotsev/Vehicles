@@ -12,6 +12,14 @@ namespace Vehicles.Infrastructure.Data
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder
+           .Entity<ServiceShop>()
+           .Property(e => e.CategoryVehicles)
+           .HasConversion<string>();
+        }
+
         public DbSet<Account> Accounts { get; set; }
         public DbSet<User>? User { get; set; }
         public DbSet<Cart> Carts { get; set; }
